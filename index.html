@@ -3,174 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لؤلؤة الأحلام | خدمات التنظيف المتكاملة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>لؤلؤة الأحلام | خدمات التنظيف في الإمارات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --gold: #C5A059;
-            --gold-dark: #A6803F;
-            --black: #1a1a1a;
-            --white: #ffffff;
-            --bg: #f4f4f4;
+            --main-blue: #003366; /* نفس أزرق شركة الشموخ */
+            --main-orange: #f39c12; /* نفس البرتقالي */
+            --light-gray: #f4f4f4;
         }
 
         body {
             font-family: 'Cairo', sans-serif;
             margin: 0; padding: 0;
-            background-color: var(--bg);
-            color: var(--black);
-            line-height: 1.6;
+            background-color: var(--light-gray);
         }
 
-        /* Header */
-        header {
-            background: var(--black);
+        /* Top Bar & Navigation */
+        .top-nav {
+            background: var(--main-blue);
+            color: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        nav {
+            background: white;
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo { color: var(--gold); font-size: 24px; font-weight: bold; }
 
-        /* Hero */
+        .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .nav-links li a { text-decoration: none; color: var(--main-blue); font-weight: bold; }
+        .nav-links li a:hover { color: var(--main-orange); }
+
+        .logo-container img { height: 50px; } /* حط رابط اللوجو هنا */
+        .company-name { color: var(--main-blue); font-size: 22px; font-weight: bold; }
+
+        /* Hero Image */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070');
+            background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6954?q=80&w=1000');
             background-size: cover; background-position: center;
-            height: 70vh; display: flex; flex-direction: column;
+            height: 400px; display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 0 20px;
+            color: white; text-align: center;
         }
-        .hero h1 { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; }
 
-        /* Sections */
-        .section { padding: 60px 5%; }
-        .title { text-align: center; margin-bottom: 40px; }
-        .title h2 { font-size: 2rem; color: var(--black); position: relative; display: inline-block; }
-        .title h2::after { content: ''; width: 60%; height: 3px; background: var(--gold); position: absolute; bottom: -10px; left: 20%; }
-
-        /* Articles Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--gold); }
-        .card-content { padding: 20px; }
-        .card-content h3 { color: var(--gold-dark); margin-top: 0; }
-        .read-more { 
-            display: inline-block; margin-top: 15px; color: var(--gold); 
-            text-decoration: none; font-weight: bold; cursor: pointer;
-            border: 1px solid var(--gold); padding: 5px 15px; border-radius: 5px;
+        /* Articles Grid (نفس شكل الصورة 35) */
+        .content-section { padding: 40px 5%; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-        .read-more:hover { background: var(--gold); color: white; }
 
-        /* Modal (Popup) */
+        .post-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .post-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .post-card img { width: 100%; height: 200px; object-fit: cover; }
+        .post-info { padding: 20px; }
+        .post-info h3 { color: var(--main-blue); margin: 0 0 10px 0; font-size: 18px; }
+        .post-info p { color: #666; font-size: 14px; margin-bottom: 15px; height: 60px; overflow: hidden; }
+        
+        .read-more-btn {
+            background: var(--main-orange);
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        /* Floating Contact */
+        .contact-fixed {
+            position: fixed; bottom: 20px; right: 20px;
+            display: flex; flex-direction: column; gap: 10px; z-index: 2000;
+        }
+        .icon { width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; }
+        .whatsapp { background: #25d366; }
+        .phone { background: var(--main-orange); }
+
+        footer { background: var(--main-blue); color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
+        /* Modal for Articles */
         .modal {
-            display: none; position: fixed; z-index: 2000;
+            display: none; position: fixed; z-index: 3000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            overflow-y: auto;
+            background: rgba(0,0,0,0.8); overflow-y: auto;
         }
         .modal-content {
-            background-color: white; margin: 5% auto; padding: 30px;
-            width: 80%; max-width: 700px; border-radius: 10px;
-            position: relative; line-height: 1.8;
+            background: white; margin: 10% auto; padding: 30px;
+            width: 85%; max-width: 600px; border-radius: 8px; position: relative;
         }
-        .close { position: absolute; left: 20px; top: 10px; font-size: 30px; cursor: pointer; color: var(--gold); }
-
-        /* Floating Buttons */
-        .floating { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1500; }
-        .f-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; }
-        .wa { background: #25d366; }
-        .ph { background: var(--gold); }
-
-        footer { background: var(--black); color: white; text-align: center; padding: 30px; margin-top: 40px; }
+        .close { position: absolute; left: 15px; top: 10px; font-size: 28px; cursor: pointer; color: var(--main-blue); }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">لؤلؤة الأحلام</div>
-        <a href="tel:0528271032" style="color:white; text-decoration:none;"><i class="fa fa-phone"></i> اتصل بنا</a>
-    </header>
+    <div class="top-nav">
+        <span>لؤلؤة الأحلام لخدمات التنظيف والتعقيم</span>
+        <span><i class="fa fa-phone"></i> 0528271032</span>
+    </div>
+
+    <nav>
+        <div class="logo-container">
+            <span class="company-name">لؤلؤة الأحلام</span>
+            </div>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">خدماتنا</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+    </nav>
 
     <section class="hero">
-        <h1>إتقان، نظافة، فخامة</h1>
-        <p>شركة لؤلؤة الأحلام الرائدة في عجمان لتنظيف الفلل، الكنب، والسجاد بأحدث تقنيات البخار والتعقيم.</p>
+        <h1>شركة لؤلؤة الأحلام للتنظيف</h1>
+        <p>الاحترافية والدقة في كل زاوية من منزلك</p>
     </section>
 
-    <section class="section">
-        <div class="title"><h2>مقالات تهمك</h2></div>
+    <section class="content-section">
         <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?q=80&w=500" alt="نظافة السجاد">
-                <div class="card-content">
-                    <h3>أسرار الحفاظ على السجاد</h3>
-                    <p>السجاد هو واجهة منزلك، تعرف على كيفية حمايته من البقع المستعصية والروائح الكريهة...</p>
-                    <span class="read-more" onclick="openModal('m1')">اقرأ المزيد</span>
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=500" alt="تنظيف فلل">
+                <div class="post-info">
+                    <h3>شركة تنظيف فلل في عجمان</h3>
+                    <p>نقدم أفضل خدمات تنظيف الفلل الجديدة والمسكونة في عجمان بأحدث الماكينات...</p>
+                    <span class="read-more-btn" onclick="openPost('p1')">اقرأ المزيد</span>
                 </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=500" alt="تنظيف المطبخ">
-                <div class="card-content">
-                    <h3>تنظيف المطابخ وإزالة الدهون</h3>
-                    <p>المطبخ يحتاج لتعقيم خاص. إليك خطوات لؤلؤة الأحلام في جعل مطبخك يلمع كالجديد...</p>
-                    <span class="read-more" onclick="openModal('m2')">اقرأ المزيد</span>
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?q=80&w=500" alt="تنظيف كنب">
+                <div class="post-info">
+                    <h3>تنظيف الكنب بالبخار</h3>
+                    <p>إزالة أصعب البقع من الكنب والمجالس والستائر مع التعقيم الفوري بالبخار الحار...</p>
+                    <span class="read-more-btn" onclick="openPost('p2')">اقرأ المزيد</span>
                 </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?q=80&w=500" alt="تعقيم المنازل">
-                <div class="card-content">
-                    <h3>لماذا التعقيم الدوري ضروري؟</h3>
-                    <p>في أجواء الإمارات، يكثر الغبار والبكتيريا. اكتشف أهمية التعقيم العميق لمنزلك في عجمان...</p>
-                    <span class="read-more" onclick="openModal('m3')">اقرأ المزيد</span>
+            <div class="post-card">
+                <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=500" alt="تنظيف سجاد">
+                <div class="post-info">
+                    <h3>شركة تنظيف سجاد وموكيت</h3>
+                    <p>نغسل السجاد في مكانه أو في مغاسلنا ونعيده إليك برائحة عطرة ونظافة لا تضاهى...</p>
+                    <span class="read-more-btn" onclick="openPost('p3')">اقرأ المزيد</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="m1" class="modal">
+    <div id="p1" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('m1')">&times;</span>
-            <h2 style="color:var(--gold)">أسرار الحفاظ على السجاد والموكيت</h2>
-            <p>توضح شركة **لؤلؤة الأحلام** أن السجاد يحتاج لعناية خاصة في عجمان بسبب الرطوبة والغبار. نحن نستخدم تقنية **التنظيف بالبخار** التي تتغلغل داخل الألياف لتفتيت البقع الصعبة دون التأثير على جودة القماش. </p>
-            <p>**نصيحة ذهبية:** لا تترك البقعة تجف، ضع منديلاً جافاً فوراً وقم بالضغط (وليس المسح) ثم اتصل بنا للتعامل الاحترافي.</p>
+            <span class="close" onclick="closePost('p1')">&times;</span>
+            <h2 style="color:var(--main-blue)">شركة تنظيف فلل في عجمان</h2>
+            <p>تعتبر شركة لؤلؤة الأحلام من الشركات الرائدة في تنظيف الفلل. نحن نستخدم مواد تنظيف مستوردة آمنة على الرخام والأرضيات. خدمتنا تشمل تنظيف الواجهات والمسابح والمطابخ والتعقيم الكامل ضد البكتيريا.</p>
+            <p>اتصل بنا الآن للحصول على عرض سعر مجاني.</p>
         </div>
     </div>
 
-    <div id="m2" class="modal">
+    <div id="p2" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('m2')">&times;</span>
-            <h2 style="color:var(--gold)">دليل تنظيف المطابخ وإزالة الدهون</h2>
-            <p>تتراكم الدهون في شفاطات المطابخ والأسطح مما يسبب روائح غير مرغوبة. فريقنا في عجمان يقوم بفك الشفاطات وتنظيفها بمواد مذيبة للدهون آمنة تماماً على الأسطح المعدنية والخشبية.</p>
-            <p>نحن نضمن لك مطبخاً معقماً وخالياً من الحشرات بفضل استخدامنا لمواد تنظيف عالمية الجودة.</p>
+            <span class="close" onclick="closePost('p2')">&times;</span>
+            <h2 style="color:var(--main-blue)">تنظيف الكنب بالبخار في عجمان</h2>
+            <p>هل تعاني من بقع القهوة أو ألوان الحبر على الكنب؟ تقنية البخار لدى لؤلؤة الأحلام كفيلة بالقضاء على البقع وتفتيتها مع الحفاظ على أنسجة القماش. الخدمة تتم في منزلك دون الحاجة لنقل الأثاث.</p>
         </div>
     </div>
 
-    <div id="m3" class="modal">
+    <div id="p3" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('m3')">&times;</span>
-            <h2 style="color:var(--gold)">أهمية التعقيم العميق للفلل</h2>
-            <p>التعقيم ليس مجرد تنظيف عادي، بل هو القضاء على الفيروسات والبكتيريا غير المرئية. في **لؤلؤة الأحلام**، نستخدم أجهزة "الضباب الحراري" لتعقيم مساحات الفلل الواسعة في الشارقة وعجمان، مما يضمن وصول المادة المعقمة لكل ركن وزاوية.</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>شركة لؤلؤة الأحلام للتنظيف والتعقيم - عجمان</p>
-        <p>جميع الحقوق محفوظة © 2026</p>
-    </footer>
-
-    <div class="floating">
-        <a href="https://wa.me/971528271032" class="f-btn wa"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:0528271032" class="f-btn ph"><i class="fa fa-phone"></i></a>
-    </div>
-
-    <script>
-        function openModal(id) { document.getElementById(id).style.display = "block"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
-        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
-    </script>
-</body>
-</html>
+            <span class="close" onclick="closePost('p3')">&times;</span>
+            <h2 style
