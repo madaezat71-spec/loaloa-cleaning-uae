@@ -24,17 +24,17 @@
             position: fixed; width: 100%; top: 0; z-index: 2000;
             border-bottom: 2px solid var(--gold);
         }
-        .brand-name { color: var(--gold); font-size: 28px; font-weight: 700; }
+        .brand-name { color: var(--gold); font-size: 28px; font-weight: 700; text-align: center; }
 
-        /* Hero Section */
+        /* Hero Section - تم تعديل الارتفاع ليكون مرن */
         .hero {
-            height: 70vh; margin-top: 70px;
+            min-height: 70vh; margin-top: 70px;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1500');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 0 20px;
+            text-align: center; color: white; padding: 40px 20px;
         }
-        .hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; }
+        .hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; line-height: 1.2; }
         .hero p { font-size: 1.4rem; max-width: 800px; }
 
         /* Section Styling */
@@ -69,20 +69,18 @@
         .art-body h4 { color: var(--gold); font-size: 1.4rem; margin-bottom: 15px; }
         .art-body p { color: #ccc; font-size: 1rem; height: 90px; overflow: hidden; margin-bottom: 20px; }
 
-        /* Modal (Large Article Display) */
+        /* Modal */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.95); z-index: 3000; display: none; overflow-y: auto;
         }
         .modal-content {
             background: white; width: 90%; max-width: 900px; margin: 40px auto;
-            padding: 60px; border-radius: 20px; position: relative;
+            padding: 40px; border-radius: 20px; position: relative;
         }
         .close-btn { position: absolute; top: 20px; left: 20px; font-size: 40px; color: var(--gold); cursor: pointer; }
-        .modal-content h2 { color: var(--gold); font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .modal-content div { font-size: 1.2rem; line-height: 2.2; color: #333; }
-        .modal-content ul { margin-top: 20px; }
-        .modal-content li { margin-bottom: 10px; }
+        .modal-content h2 { color: var(--gold); font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .modal-content div { font-size: 1.1rem; line-height: 1.8; color: #333; }
 
         /* Why Us Section */
         .why-us { padding: 100px 8%; background: var(--gray-bg); text-align: center; }
@@ -96,6 +94,24 @@
         .wa { background: #25d366; } .ph { background: var(--gold); }
 
         footer { background: #000; color: white; padding: 50px; text-align: center; border-top: 3px solid var(--gold); }
+
+        /* --- Responsive Fix (إصلاح تداخل الموبايل) --- */
+        @media (max-width: 768px) {
+            .brand-name { font-size: 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .section { padding: 40px 5%; }
+            .title-group h2 { font-size: 1.8rem; }
+            
+            .service-img { min-width: 100%; height: 250px; }
+            .service-info { min-width: 100%; padding: 30px 20px; text-align: center; align-items: center; }
+            .service-info h3 { font-size: 1.5rem; }
+            
+            .articles-grid { grid-template-columns: 1fr; }
+            .modal-content { padding: 30px 15px; margin: 20px auto; }
+            
+            .f-icon { width: 50px; height: 50px; font-size: 24px; }
+        }
     </style>
 </head>
 <body>
